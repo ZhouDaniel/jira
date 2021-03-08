@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -43,4 +43,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn React, check out the [React documentation](https://reactjs.org/). -->
+
+## 3-2
+
+1. 状态提升（把两个子组件需要用的状态和方法给一个他们的父组件维护并传给子组件）
+2. 启动后端服务指定端口,在 packjson 中添加`"json-server": "json-server __json_server_mock__/db.json --watch --port 4000"）`
+3. 在根目录下新建.env 和.env.development 设置 baseUrl `REACT_APP_API_URL = xxx` 用`process.env.REACT_APP_API_URL` 接收
+4. 请求的 ur 做处理（新建文件来处理）
+    - 删除空的字段 `var json = {a:1,b:2}; delete json[a]`
+    - 注意方法里不要改变传过来的参数，还是复制一份返回去
+    - 安装 qs 插件 使用 qs.stringify 把 json 对象处理成 url 形式（a=1&c=2）
+    - 因为 !0 也为转变为布尔值 false，所以拆分一个方法来判断
