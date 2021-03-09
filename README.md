@@ -55,3 +55,8 @@ To learn React, check out the [React documentation](https://reactjs.org/). -->
     - 注意方法里不要改变传过来的参数，还是复制一份返回去
     - 安装 qs 插件 使用 qs.stringify 把 json 对象处理成 url 形式（a=1&c=2）
     - 因为 !0 也为转变为布尔值 false，所以拆分一个方法来判断
+
+## 3-3
+
+1. 使用了 useMount 和 useDebounce 两个自定义 hook，包装了只有加载时才发送请求和防抖两个功能
+2. 何时用 hook，何时用函数？当不需要用到其他 hook 时，例如 useState，就用函数，否则就用 hook
