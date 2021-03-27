@@ -60,3 +60,39 @@ To learn React, check out the [React documentation](https://reactjs.org/). -->
 
 1. 使用了 useMount 和 useDebounce 两个自定义 hook，包装了只有加载时才发送请求和防抖两个功能
 2. 何时用 hook，何时用函数？当不需要用到其他 hook 时，例如 useState，就用函数，否则就用 hook
+
+## 4-1
+
+为什么要用 typescript
+
+## 4-2 typescript 几个方面
+
+1. 一些引入的插件 例如 `qs` 不是 ts 写的，所有需要安装 qs 的 ts 补丁才可以用
+2. `interface` 接口 定义数据类型
+3. `@ts-ignore` 可以忽略 ts 的报错
+4. `() => void` 代表不返回任何值的回调函数
+
+## 5-1
+
+1. 在 json-server 里面使用 middlewares 实现不是 restful api 来实现登录功能
+2. form 表单的编写
+3. fetch 的 post 请求
+
+## 5-2
+
+1. 安装 jira-dev-tool `npx imooc-jira-tool`
+   在入口文件添加
+
+```js
+import { loadDevTools } from "jira-dev-tool";
+loadDevTools(() => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>,
+        document.getElementById("root")
+    );
+});
+```
+
+所有请求被 Service Worker 代理
