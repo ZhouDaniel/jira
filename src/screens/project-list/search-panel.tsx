@@ -5,7 +5,9 @@ export interface User {
     email: string;
     title: string;
     organizition: string;
+    token: string;
 }
+
 interface SearchPaneProps {
     users: User[];
     param: {
@@ -14,6 +16,7 @@ interface SearchPaneProps {
     };
     setParam: (param: SearchPaneProps["param"]) => void;
 }
+
 export const SearchPanel = ({ param, setParam, users }: SearchPaneProps) => {
     return (
         <form action="">

@@ -60,6 +60,7 @@ To learn React, check out the [React documentation](https://reactjs.org/). -->
 
 1. 使用了 useMount 和 useDebounce 两个自定义 hook，包装了只有加载时才发送请求和防抖两个功能
 2. 何时用 hook，何时用函数？当不需要用到其他 hook 时，例如 useState，就用函数，否则就用 hook
+3. hook 只能在其他 hook 或者组件中使用，如果在其他 hook 中使用就要在命名时加上 use，如果是组件，首字母就要大写
 
 ## 4-1
 
@@ -96,3 +97,33 @@ loadDevTools(() => {
 ```
 
 所有请求被 Service Worker 代理
+
+## 5-3 ,5-4 auth-provider 的编写 和 useContext 存储全局用户信息
+
+1. 父组件用 React.createContext 注册 user, login,register,logout 为全局额信息
+
+```js
+const AuthContext = React.createContext(null)
+...
+return <AuthContext.Provider children={children} value={{user, login,register,logout}} />
+```
+
+2. 子组件用 useContext 接收
+   `const context = React.useContext(AuthContext)`
+
+## 5-5 用 useAuth 切换登录与非登录状态
+
+## 5-6 封装 fetch 请求
+
+1. fetch 的 catch 方法捕捉不到服务器返回的 4xx，5xx 错误，只能捕获网络等问题
+2. axios 的表现和 fetch 不一样，axios 可以在返回状态不为 2xx 的时候抛出异常
+
+## 5-7 用 useHttp 管理 JWT 和登录状态，保持登录状态
+
+1. 给参数一个默认值会起到该参数可传可不传的效果(前面用了解构不能用问号？来表示可传可不传)
+2. get 请求的参数是放在 url 上，post 请求放在 body 里面
+3. 当传参数时，写成了 [a,b] 所以传参时也要写成[a,b],如果想写成 a,b 那行参的位置需要解构 ...[a,b]
+4. {children}:{children:ReactNode}
+5. 在 AuthProvider 中 请求 user，用返回的 user 来保持登入状态，在 AuthProvider 中的请求，需要用 useEffect 来限制次数，不然会一直请求
+
+## 5-8 类型别名，联合类型、Partial 和 Omit

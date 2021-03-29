@@ -28,7 +28,7 @@ export const useDebounce = (value: any, delay?: number) => {
         let timer = setTimeout(() => {
             setdebouceValue(value);
         }, delay);
-        // 每次在上一个useEffect处理完成时运行
+        // 每次在上一个useEffect更新时运行
         return () => {
             clearTimeout(timer);
         };
